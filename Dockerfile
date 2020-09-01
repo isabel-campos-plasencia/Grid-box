@@ -1,4 +1,4 @@
-ROM centos:centos8
+FROM centos:centos8
 
 # This install compilers, scripters, and related tools
 
