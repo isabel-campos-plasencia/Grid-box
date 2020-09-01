@@ -8,7 +8,7 @@ udocker is available at:  https://github.com/indigo-dc/udocker. To install udock
 
 curl https://raw.githubusercontent.com/indigo-dc/udocker/master/udocker.py > udocker  \
  chmod u+rx ./udocker \
- ./udocker install"
+ ./udocker install 
 
 Grid-box is built using the lates release of Centos, enhanced with the development tools required to build, compile and execute GRID.
 It includes as well the optional libraries used by the software package Grid (LIME, FFTW, HDF5 and LAPACK).
