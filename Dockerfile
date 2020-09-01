@@ -47,22 +47,22 @@ RUN mkdir -p /opt
 RUN mkdir -p /opt/projects
 RUN mkdir -p /opt/projects/Grid
 
-RUN mkdir -P /opt/projects/Grid/LIME
+RUN mkdir -p /opt/projects/Grid/LIME
 WORKDIR /opt/projects/Grid/LIME
 RUN wget https://github.com/usqcd-software/c-lime/archive/master.zip
 RUN unzip *.zip
 
-RUN mkdir -P /opt/projects/Grid/LAPACK
+RUN mkdir -p /opt/projects/Grid/LAPACK
 WORKDIR /opt/projects/Grid/LAPACK
 RUN wget https://github.com/Reference-LAPACK/lapack-release/archive/lapack-3.8.0.zip
 RUN unzip *.zip
 
-RUN mkdir -P /opt/projects/Grid/FFTW
+RUN mkdir -p /opt/projects/Grid/FFTW
 WORKDIR WORKDIR /opt/projects/Grid/FFTW
 RUN wget https://github.com/FFTW/fftw3/archive/master.zip
 RUN unzip *.zip
 
-RUN mkdir -P /opt/projects/Grid/HDF5
+RUN mkdir -p /opt/projects/Grid/HDF5
 WORKDIR WORKDIR /opt/projects/Grid/HDF5
 RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
 RUN tar xvf *.tar.gz
