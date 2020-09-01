@@ -4,14 +4,13 @@ Centos8 based container to compile Grid libraries for LQCD
 
 The container is meant to be run using "udocker" to avoid requiring root privileges if you use it in a multi-user HPC system.
 
-udocker is available at:  https://github.com/indigo-dc/udocker.  To install udocker simply:
+udocker is available at:  https://github.com/indigo-dc/udocker. To install udocker:
 
 curl https://raw.githubusercontent.com/indigo-dc/udocker/master/udocker.py > udocker  \
  chmod u+rx ./udocker \
  ./udocker install"
 
-It is built using the lates release of Centos, enhanced with the development tools required to build, compile and execute GRID.
-
+Grid-box is built using the lates release of Centos, enhanced with the development tools required to build, compile and execute GRID.
 It includes as well the optional libraries used by the software package Grid (LIME, FFTW, HDF5 and LAPACK).
 They have been placed under /opt/projects/Grid
 
@@ -36,8 +35,12 @@ will execute the container by providing a sort of chroot environment in a local 
 
 The directory $GRID_SOURCE will be available inside this environment. 
 
-Inside the environment you can "cd $GRID_SOURCE" and follow the instructions for building and configuration. The grid-box has pre-installed openMPI
-as MPI implementation. If you want to use another one, you need to install it your self following usual procedures. Notice however that the environment
-variables are by default pointing to OpenMPI as default. You need to change that.
+Inside the environment you can "cd $GRID_SOURCE" and follow the instructions of GRID. 
+
+The grid-box has pre-installed openMPI as MPI implementation. If you want to use another one, you need to install it your self following usual procedures. 
+Notice however that the environment variables are by default pointing to OpenMPI as default. You need to change that.
+
+
+
 
 
