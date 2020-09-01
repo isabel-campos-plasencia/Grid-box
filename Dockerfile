@@ -1,4 +1,4 @@
-ROM centos:centos7
+ROM centos:centos8
 
 # This install compilers, scripters, and related tools
 
@@ -14,7 +14,8 @@ RUN yum -y install \
     gnuplot \
     gsl* \
     gmp* \
-    openmpi*
+    openmpi*\
+    openssl*
 
 # Setting some useful environment
 
@@ -28,7 +29,7 @@ RUN echo 'export MPI_INCLUDE=/usr/include/openmpi-x86_64' >> /etc/profile.d/scic
 RUN /usr/sbin/useradd developer
 
 RUN echo '/******************************************************************************/' > /etc/motd 
-RUN echo '/**********   WELCOME TO CENTOS8 GRID tools CONTAINER  ************************/' >> /etc/motd 
+RUN echo '/**********   WELCOME TO CENTOS8 GRID-box enabled CONTAINER  ******************/' >> /etc/motd 
 RUN echo '/                                                                              /' >> /etc/motd 
 RUN echo '/ You might need to source the environment depending on the local directories  /' >> /etc/motd 
 RUN echo '/ you mount (-v option) by typing: source /etc/profile.d/scicomp.sh            /' >> /etc/motd 
@@ -44,13 +45,12 @@ RUN echo '/usr/bin/cat /etc/motd' >> /etc/profile.d/scicomp.sh
 
 RUN mkdir -p /opt
 RUN mkdir -p /opt/projects
-WORKDIR /opt/projects
+RUN mkdir -p /opt/projects/Grid
+WORKDIR /opt/projects/Grid
 
-RUN wget http://luscher.web.cern.ch/luscher/openQCD/openQCD-2.0.tar.gz
-RUN tar xzvf openQCD-2.0.tar.gz
 RUN chown -R developer.users /opt
 
-WORKDIR /opt/projects/openQCD-2.0
+WORKDIR /opt/projects/Grid
 
 CMD ["/bin/bash"]
 
