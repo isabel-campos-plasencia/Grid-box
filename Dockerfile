@@ -46,11 +46,30 @@ RUN echo '/usr/bin/cat /etc/motd' >> /etc/profile.d/scicomp.sh
 RUN mkdir -p /opt
 RUN mkdir -p /opt/projects
 RUN mkdir -p /opt/projects/Grid
+
+RUN mkdir -P /opt/projects/Grid/LIME
+WORKDIR /opt/projects/Grid/LIME
+wget https://github.com/usqcd-software/c-lime/archive/master.zip
+unzip *.zip
+
+RUN mkdir -P /opt/projects/Grid/LAPACK
+WORKDIR /opt/projects/Grid/LAPACK
+wget https://github.com/Reference-LAPACK/lapack-release/archive/lapack-3.8.0.zip
+unzip *.zip
+
+RUN mkdir -P /opt/projects/Grid/FFTW
+WORKDIR WORKDIR /opt/projects/Grid/FFTW
+wget https://github.com/FFTW/fftw3/archive/master.zip
+unzip *.zip
+
+RUN mkdir -P /opt/projects/Grid/HDF5
+WORKDIR WORKDIR /opt/projects/Grid/HDF5
+wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
+tar xvf *.tar.gz
+
 WORKDIR /opt/projects/Grid
 
 RUN chown -R developer.users /opt
-
-WORKDIR /opt/projects/Grid
 
 CMD ["/bin/bash"]
 
