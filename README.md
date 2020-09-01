@@ -40,6 +40,16 @@ Inside the environment you can "cd $GRID_SOURCE" and follow the instructions of 
 The grid-box has pre-installed openMPI as MPI implementation. If you want to use another one, you need to install it your self following usual procedures. 
 Notice however that the environment variables are by default pointing to OpenMPI as default. You need to change that.
 
+If you make changes inside the container directory structure (e.g. installing additional software you find useful) and want to make a backup just in case.
+
+1) First save the container status into a tar file:
+
+./udocker export -o mygrid-box-v1.tar mygrid-box
+
+2) Then create the new image:
+
+./udocker import mygrid-box-v1.tar mygrid-box-v1
+
 
 
 
