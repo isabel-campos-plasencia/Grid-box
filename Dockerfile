@@ -68,9 +68,22 @@ WORKDIR /opt/projects/Grid/HDF5
 RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
 RUN tar xvf *.tar.gz
 
-WORKDIR /opt/projects/Grid
-
 RUN chown -R developer.users /opt
+
+WORKDIR /opt/projects/Grid
+RUN mkdir -p /opt/projects/Grid/SRC
+RUN mkdir -p /home/developer/GRID
+WORKDIR /opt/projects/Grid/SRC
+
+RUN wget https://github.com/paboyle/Grid/archive/master.zip
+RUN unzip master.zip
+
+RUN cd Grid-master
+RUN ./bootstrap.sh 
+RUN mkdir build
+RUN cd build
+RUN ./configure --enable-precision=double --enable-simd=AVX --enable-comms=mpi-auto --prefix=/home/developer/GRID
+
 
 CMD ["/bin/bash"]
 
