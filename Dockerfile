@@ -75,7 +75,11 @@ RUN mkdir -p /opt/projects/Grid/SRC
 RUN mkdir -p /home/developer/GRID
 WORKDIR /opt/projects/Grid/SRC
 
-RUN source /etc/profile.d/scicomp.sh
+RUN export GCC=gcc
+RUN export PATH=$PATH:/usr/lib64/openmpi/bin:/usr/lib64/openmpi/lib
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib
+RUN export MPI_INCLUDE=/usr/include/openmpi-x86_64
+
 
 RUN wget https://github.com/paboyle/Grid/archive/develop.zip
 RUN unzip develop.zip
