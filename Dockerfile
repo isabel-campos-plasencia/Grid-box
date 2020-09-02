@@ -79,6 +79,7 @@ RUN wget https://github.com/paboyle/Grid/archive/master.zip
 RUN unzip master.zip
 
 RUN cd Grid-master
+WORKDIR /opt/projects/Grid/SRC/Grid-master
 RUN ./bootstrap.sh 
 RUN mkdir build
 RUN cd build
