@@ -15,7 +15,8 @@ RUN yum -y install \
     gsl* \
     gmp* \
     openmpi*\
-    openssl*
+    openssl* \
+    mpfr* 
 
 # Setting some useful environment
 
