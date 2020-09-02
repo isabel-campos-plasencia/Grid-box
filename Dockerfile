@@ -75,6 +75,8 @@ RUN mkdir -p /opt/projects/Grid/SRC
 RUN mkdir -p /home/developer/GRID
 WORKDIR /opt/projects/Grid/SRC
 
+RUN source /etc/profile.d/scicomp.sh
+
 RUN wget https://github.com/paboyle/Grid/archive/develop.zip
 RUN unzip develop.zip
 
