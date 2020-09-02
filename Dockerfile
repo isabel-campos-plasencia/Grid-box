@@ -84,7 +84,7 @@ RUN ./bootstrap.sh
 RUN mkdir build
 RUN cd build
 WORKDIR /opt/projects/Grid/SRC/Grid-develop/build
-RUN ./configure --enable-precision=double --enable-simd=AVX --enable-comms=mpi-auto --prefix=/home/developer/GRID
+RUN ../configure --enable-precision=double --enable-simd=AVX --enable-comms=mpi-auto --prefix=/home/developer/GRID
 
 RUN make
 RUN make check
