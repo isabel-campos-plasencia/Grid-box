@@ -14,13 +14,6 @@ Grid-box is built using the lates release of Centos, enhanced with the developme
 It includes as well the optional libraries used by the software package Grid (LIME, FFTW, HDF5 and LAPACK).
 They have been placed under /opt/projects/Grid
 
-The container does not include the sources of GRID, those are to be downloaded from:
-
-https://github.com/paboyle/Grid
-
-and uncompressed to a local directory from the user $GRID_SOURCE.
-
-
 INSTRUCTIONS:
 
 1)  Create a container from the image as downloaded from Docker hub:
@@ -29,16 +22,20 @@ INSTRUCTIONS:
 (mygrid-box is en example name, pick the name you like)
 
 2)  Execute the container:
-./udocker run -v $GRID_SOURCE  mygrid-box  
+./udocker run mygrid-box /bin/bash  
 
 will execute the container by providing a sort of chroot environment in a local directory of the user under $HOME/.udocker/containers/mygrid-box
 
-The directory $GRID_SOURCE will be available inside this environment. 
+The GRID software libraries compiled are available at: /home/developer/GRID
+Sources are avaliable at: /opt/projects/GRID/SRC
 
-Inside the environment you can "cd $GRID_SOURCE" and follow the instructions of GRID. 
+Other extra (non-mandatory) libraries are available at: 
+/opt/projects/HPF5, /opt/projects/LIME, /opt/projects/LAPACK and /opt/projects/FFTW
 
-The grid-box has pre-installed openMPI as MPI implementation. If you want to use another one, you need to install it your self following usual procedures. 
-Notice however that the environment variables are by default pointing to OpenMPI as default. You need to change that.
+
+The grid-box has pre-installed openMPI as MPI implementation and has compiled GRID for them. 
+If you want to use another one, you need to install it your self following usual procedures.  
+Notice however that the environment variables  are by default pointing to OpenMPI as default. You need to change that.
 
 If you make changes inside the container directory structure (e.g. installing additional software you find useful) and want to make a backup just in case.
 
