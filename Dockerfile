@@ -68,9 +68,33 @@ WORKDIR /opt/projects/Grid/HDF5
 RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
 RUN tar xvf *.tar.gz
 
-WORKDIR /opt/projects/Grid
-
 RUN chown -R developer.users /opt
+
+WORKDIR /opt/projects/Grid
+RUN mkdir -p /opt/projects/Grid/SRC
+RUN mkdir -p /home/developer/GRID
+WORKDIR /opt/projects/Grid/SRC
+
+ENV GCC=gcc
+ENV PATH=$PATH:/usr/lib64/openmpi/bin:/usr/lib64/openmpi/lib
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib
+ENV MPI_INCLUDE=/usr/include/openmpi-x86_64
+
+
+RUN wget https://github.com/paboyle/Grid/archive/develop.zip
+RUN unzip develop.zip
+
+RUN cd Grid-develop
+WORKDIR /opt/projects/Grid/SRC/Grid-develop
+RUN ./bootstrap.sh 
+RUN mkdir build
+RUN cd build
+WORKDIR /opt/projects/Grid/SRC/Grid-develop/build
+RUN ../configure --enable-precision=double --enable-simd=AVX --enable-comms=mpi-auto --prefix=/home/developer/GRID
+
+RUN make
+RUN make check
+RUN make install
 
 CMD ["/bin/bash"]
 
