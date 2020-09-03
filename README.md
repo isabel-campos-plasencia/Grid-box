@@ -17,21 +17,20 @@ They have been placed under /opt/projects/Grid
 INSTRUCTIONS:
 
 1)  Create a container from the image as downloaded from Docker hub:
+
 ./udocker create --name=mygrid-box iscampos/grid-box
 
 (mygrid-box is en example name, pick the name you like)
 
 2)  Execute the container:
+
 ./udocker run mygrid-box /bin/bash  
 
 will execute the container by providing a sort of chroot environment in a local directory of the user under $HOME/.udocker/containers/mygrid-box
 
 The GRID software libraries compiled are available at: /home/developer/GRID
+
 Sources are avaliable at: /opt/projects/GRID/SRC
-
-Other extra (non-mandatory) libraries are available at: 
-/opt/projects/HPF5, /opt/projects/LIME, /opt/projects/LAPACK and /opt/projects/FFTW
-
 
 The grid-box has pre-installed openMPI as MPI implementation and has compiled GRID for them. 
 If you want to use another one, you need to install it your self following usual procedures.  
